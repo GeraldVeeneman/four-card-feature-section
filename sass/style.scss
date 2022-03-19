@@ -1,0 +1,172 @@
+/* Base */
+
+// Colours
+:root {
+// Primary
+--red: hsl(0, 78%, 62%);                // Top Border Team Builder
+--cyan: hsl(180, 62%, 55%);             // Top border Supervisor
+--orange: hsl(34, 97%, 64%);            // Top border Karma
+--blue: hsl(212, 86%, 64%);             // Top border Calculator
+
+// Neutral
+--very-dark-blue: hsl(234, 12%, 34%);   // Header font colours
+--grayish-blue: hsl(229, 6%, 66%);      // Description font colour
+--very-light-gray: hsl(0, 0%, 98%);     // Body background colour
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px (10px/16px = 62.5%)
+  box-sizing: border-box;
+}
+
+/* Layout */
+
+/* Media Query break points */
+$bp-desktop-min: 1110px; // desktop view: card 350px + 50px left and right margin
+//$card-width-mobile: 325px; // mobile view: card and bg-header-card 325px, left and right margin 25px. Total width: 325px + 50px = 375px.
+
+
+body {    
+    font: {
+        family:"Poppins";
+        size: 1.5rem;
+    }
+    
+    background-color: var(--very-light-gray);
+    padding: 9rem 4rem 6.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // Media queries
+  @media only screen and (min-width: $bp-desktop-min) {
+    display: grid;
+    //grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-rows: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.header {
+    h1, h2 {
+        text-align: center;
+        font-size: 2.25rem;
+    }
+
+    &--regular {
+        font-weight:200;
+    }
+
+    &--bold {
+        font-weight:600;
+    }
+    
+    & .description {
+        color: var(--grayish-blue);
+        text-align: center;
+        margin: 2.5rem auto 7.5rem auto;
+
+        @media only screen and (min-width: $bp-desktop-min) {            
+            width: 50rem;
+        }
+    }
+
+     
+}
+
+
+
+.card {
+    width: 31rem;
+    height: 22.5rem;
+    background-color: white;
+    padding: 2.5rem;
+    border: 1px solid var(--very-light-gray);
+    border-top-width: thick;
+    border-top-color: red;
+    border-radius: 5px;
+    box-shadow: hsla(234, 12%, 34%, .2) 0px 15px 15px -3px;
+    margin-bottom: 2rem;
+
+    @media only screen and (min-width: $bp-desktop-min) {
+        width: 35rem;
+        height: 25rem;
+    }
+
+    &__header {
+        font: {
+            size: 2rem;
+        }
+        margin-bottom: 1.5rem;
+
+    }
+
+    &__text {
+        font-size: 1.3rem;
+        color: var(--grayish-blue);
+        margin-bottom: 3rem;
+
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    &#supervisor {
+        border-top-color: var(--cyan);
+
+        @media only screen and (min-width: $bp-desktop-min) {
+            grid-column: 1;
+            grid-row: 1 /span 2;
+        }
+    }
+
+    &#team-builder {
+        border-top-color: var(--red);
+        
+        @media only screen and (min-width: $bp-desktop-min) {
+            grid-column: 2;
+            grid-row: 1;
+        }    
+}
+
+&#karma {
+        border-top-color: var(--orange);
+
+        @media only screen and (min-width: $bp-desktop-min) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+
+    &#calculator {
+        border-top-color: var(--blue);
+
+        @media only screen and (min-width: $bp-desktop-min) {
+            grid-column: 3;
+            grid-row: 1 / span 2
+        }
+    }
+}
