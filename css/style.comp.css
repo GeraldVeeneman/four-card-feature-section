@@ -1,0 +1,144 @@
+/* Base */
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --very-dark-blue: hsl(234, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --very-light-gray: hsl(0, 0%, 98%);
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* Layout */
+/* Media Query break points */
+body {
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  background-color: var(--very-light-gray);
+  padding: 9rem 4rem 6.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 1110px) {
+  main {
+    display: grid;
+    gap: 2.5rem;
+  }
+}
+
+.header h1, .header h2 {
+  text-align: center;
+  font-size: 2.25rem;
+}
+.header--regular {
+  font-weight: 200;
+}
+.header--bold {
+  font-weight: 600;
+}
+.header .description {
+  color: var(--grayish-blue);
+  text-align: center;
+  margin: 2.5rem auto 7.5rem auto;
+}
+@media only screen and (min-width: 1110px) {
+  .header .description {
+    width: 50rem;
+  }
+}
+
+.card {
+  width: 31rem;
+  height: 22.5rem;
+  background-color: white;
+  padding: 2.5rem;
+  border: 1px solid var(--very-light-gray);
+  border-top-width: thick;
+  border-top-color: red;
+  border-radius: 5px;
+  box-shadow: rgba(76, 78, 97, 0.2) 0px 15px 15px -3px;
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 1110px) {
+  .card {
+    width: 35rem;
+    height: 25rem;
+  }
+}
+.card__header {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.card__text {
+  font-size: 1.3rem;
+  color: var(--grayish-blue);
+  margin-bottom: 3rem;
+}
+.card__icon {
+  display: flex;
+  justify-content: flex-end;
+}
+.card__icon img {
+  width: 5rem;
+  height: 5rem;
+}
+.card#supervisor {
+  border-top-color: var(--cyan);
+}
+@media only screen and (min-width: 1110px) {
+  .card#supervisor {
+    grid-column: 1;
+    grid-row: 1/span 2;
+  }
+}
+.card#team-builder {
+  border-top-color: var(--red);
+}
+@media only screen and (min-width: 1110px) {
+  .card#team-builder {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+.card#karma {
+  border-top-color: var(--orange);
+}
+@media only screen and (min-width: 1110px) {
+  .card#karma {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+.card#calculator {
+  border-top-color: var(--blue);
+}
+@media only screen and (min-width: 1110px) {
+  .card#calculator {
+    grid-column: 3;
+    grid-row: 1/span 2;
+  }
+}
+
+/*# sourceMappingURL=style.comp.css.map */
